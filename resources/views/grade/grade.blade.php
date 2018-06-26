@@ -76,7 +76,8 @@
 
                                     <div class="form-group">
                                         <label for="name_ar">المرحلة الدراسية</label>
-                                        <input v-model="form.grade" type="text" class="form-control" id="name_ar" required
+                                        <input v-model="form.grade" type="text" class="form-control" id="name_ar"
+                                               required
                                                placeholder="ادخل المرحلة الدراسية  " name="email">
                                     </div>
 
@@ -98,7 +99,6 @@
 
 
         </div>
-
         @endsection
 
         @section('page-script-level')

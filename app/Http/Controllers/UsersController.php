@@ -142,8 +142,21 @@ class UsersController extends Controller
                 'grade' => $input['grade'],
                 'year' => $input['year'],
             ]);
-            $output = $this->users->where('user_id', '=', $user_id)->get();
-            $output = $output[0];
+            if ($input['type'] == 1) {
+                $output = $this->users
+                    ->leftjoin($this->grade->getTable(), $this->users->getTable() . '.grade', '=', $this->grade->getTable() . '.grade_id')
+                    ->leftjoin($this->year->getTable(), $this->users->getTable() . '.year', '=', $this->year->getTable() . '.year_id')
+                    ->where('user_id', '=', $user_id)
+                    ->get();
+                $output = $output[0];
+            } else {
+                $output = $this->users
+                    ->leftjoin($this->teacher_assgin->getTable(), $this->users->getTable() . '.user_id', '=', $this->teacher_assgin->getTable() . '.teacher_id')
+                    ->where('user_id', '=', $user_id)
+                    ->get();
+                $output = $output[0];
+
+            }
 
         } else {
 
@@ -170,8 +183,24 @@ class UsersController extends Controller
                 'year' => $input['year'],
                 'image' => $input['image'],
             ]);
-            $output = $this->users->where('user_id', '=', $user_id)->get();
-            $output = $output[0];
+
+            if ($input['type'] == 1) {
+                $output = $this->users
+                    ->leftjoin($this->grade->getTable(), $this->users->getTable() . '.grade', '=', $this->grade->getTable() . '.grade_id')
+                    ->leftjoin($this->year->getTable(), $this->users->getTable() . '.year', '=', $this->year->getTable() . '.year_id')
+                    ->where('user_id', '=', $user_id)
+                    ->get();
+                $output = $output[0];
+            } else {
+                $output = $this->users
+                    ->leftjoin($this->teacher_assgin->getTable(), $this->users->getTable() . '.user_id', '=', $this->teacher_assgin->getTable() . '.teacher_id')
+                    ->where('user_id', '=', $user_id)
+                    ->get();
+                $output = $output[0];
+
+            }
+
+
         }
         return Response()->json($output);
 
