@@ -49,20 +49,25 @@ class LessonController extends Controller
 
         if (!empty($check)) {
 
-            $output = $this->weak
-                ->with(['test' => function ($query2) use ($subject_id, $grade_id, $year_id, $student_id) {
-                    $query2->join($this->studentLesson->getTable(), $this->test->getTable() . '.test_id', $this->studentLesson->getTable() . '.test_id')
-                        ->where('student_id', '=', $student_id)
-                        ->groupby($this->studentLesson->getTable() . '.test_id');
-                    $query2
-                        ->with(['TestQuestion', 'StudentTests' => function ($query_3) use ($student_id) {
-                            $query_3->where('student_id', '=', $student_id);
-                        }])
-                        ->where($this->test->getTable() . '.subject_id', $subject_id)
-                        ->where($this->test->getTable() . '.grade_id', $grade_id)
-                        ->where($this->test->getTable() . '.year_id', $year_id);
+            $output = $this->weak->with(['lesson' => function ($query) use ($subject_id, $grade_id, $year_id, $student_id) {
+                $query->with(['studentlessons' => function ($query_2) use ($student_id) {
 
-                }])
+                    $query_2->where('student_id', '=', $student_id);
+
+                }, 'teachers', 'subject'])
+                    ->where($this->lesson->getTable() . '.subject_id', $subject_id)
+                    ->where($this->lesson->getTable() . '.grade_id', $grade_id)
+                    ->where($this->lesson->getTable() . '.year_id', $year_id);
+            }, 'test' => function ($query2) use ($subject_id, $grade_id, $year_id, $student_id) {
+                $query2
+                    ->with(['TestQuestion', 'StudentTests' => function ($query_3) use ($student_id) {
+                        $query_3->where('student_id', '=', $student_id);
+                    }])
+                    ->where($this->test->getTable() . '.subject_id', $subject_id)
+                    ->where($this->test->getTable() . '.grade_id', $grade_id)
+                    ->where($this->test->getTable() . '.year_id', $year_id);
+
+            }])
                 ->get();
 
             return Response()->json($output);
