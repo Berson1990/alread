@@ -31,7 +31,7 @@ class PlacementController extends Controller
     public function GetExplanations($id, $user_id)
     {
 
-        $check = $this->placement_payment->where('placement_id', $id)->where('user_id', $user_id)->where('payment', 1)->get();
+        $check = $this->placement_payment->where('user_id', $user_id)->where('payment', 1)->get();
         if (count($check) > 0) {
             $output = $this->explantions->where('placement_id', $id)->get();
         } else {

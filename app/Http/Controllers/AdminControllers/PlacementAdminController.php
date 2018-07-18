@@ -81,4 +81,45 @@ class PlacementAdminController extends Controller
         $this->placement_questions->find($id)->delete();
     }
     /*Placement Determine End*/
+
+    /*placement Examstart*/
+    public function Placement_final_exam_index()
+    {
+        return view('placementfinalexam.placementfinalexam');
+    }
+
+    public function GetAllExamQuestions($id)
+    {
+        return $this->placement_exam->where('placement_id', $id)->get();
+    }
+
+    public function CreateFinalExamQuestion()
+    {
+        $input = Request()->all();
+        return $this->placement_exam->create($input);
+    }
+
+    public function UpdateFinalExamQuestions($id)
+    {
+        $input = Request()->all();
+        $this->placement_exam->find($id)->update($input);
+    }
+
+    public function DeleteFinalExamQuestions($id)
+    {
+        $this->placement_exam->find($id)->delete();
+    }
+    /*placement Examend*/
+
+    /*placement  payment admin*/
+    public function placement_payment_index()
+    {
+        return view('placementpaymennt.placementpaymennt');
+    }
+
+    public function GetAllPlacementPayment()
+    {
+       return $this->placement_payment->with('Users', 'Placement')->get();
+    }
+    /*end*/
 }

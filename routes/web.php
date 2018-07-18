@@ -117,7 +117,18 @@ Route::get('getquestions', 'AdminControllers\PlacementAdminController@GetAllQues
 Route::post('createquetions', 'AdminControllers\PlacementAdminController@CreateQuestion');
 Route::put('updatequestion/{id}', 'AdminControllers\PlacementAdminController@UpdateQuestions');
 Route::delete('deletequestion/{id}', 'AdminControllers\PlacementAdminController@DeleteQuestions');
-/**/
+/*end*/
+/*detetmine*/
+Route::get('placement_final_exam/{id}', 'AdminControllers\PlacementAdminController@Placement_final_exam_index');
+Route::get('getfinalexamquestions/{id}', 'AdminControllers\PlacementAdminController@GetAllExamQuestions');
+Route::post('createfinalexamquetions', 'AdminControllers\PlacementAdminController@CreateFinalExamQuestion');
+Route::put('updatefinalexamquestion/{id}', 'AdminControllers\PlacementAdminController@UpdateFinalExamQuestions');
+Route::delete('deletefinalexamquestion/{id}', 'AdminControllers\PlacementAdminController@DeleteFinalExamQuestions');
+/*end*/
+/*placement payment*/
+Route::get('getplacementpayment', 'AdminControllers\PlacementAdminController@placement_payment_index');
+Route::get('allplacement_payment', 'AdminControllers\PlacementAdminController@GetAllPlacementPayment');
+/*end*/
 /*end*/
 
 

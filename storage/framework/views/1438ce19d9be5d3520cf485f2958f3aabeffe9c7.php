@@ -152,6 +152,9 @@
                             <li>
                                 <a href="<?php echo e(url('/placement_determine')); ?>">اختبار تحديد المستوى  </a>
                             </li>
+                            <li>
+                                <a href="<?php echo e(url('/getplacementpayment')); ?>">  قائمة المستويات المحصلة  </a>
+                            </li>
 
                         </ul>
 

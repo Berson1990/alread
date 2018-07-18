@@ -79,6 +79,17 @@
                         label="عدد الاسئله الصحيحة للنجاح فى المستوى الى"
                 >
                 </el-table-column>
+                <el-table-column   width="150" label="اختبار نهاية الدورة">
+                    <template slot-scope="scope">
+                        <el-button
+                                class="el-icon-delete"
+                                size="medium"
+                                type="primary"
+
+                                @click="GotToAddFinalPlacementExam(scope.$index, scope.row)">اختبار نهاية الدورة
+                        </el-button>
+                    </template>
+                </el-table-column>
                 <el-table-column label="حذف">
                     <template slot-scope="scope">
                         <el-button
@@ -93,7 +104,7 @@
         </div>
 
         {{--dialog start--}}
-        <el-dialog title="" :visible.sync="dialogFormVisible" custom-class="dir"   v-loading="loading">
+        <el-dialog title="" :visible.sync="dialogFormVisible" custom-class="dir" v-loading="loading">
             <el-form :model="PlacementForm">
                 <el-form-item label="المستوى" :label-width="formLabelWidth">
                     <el-input placeholder="المستوى " v-model="PlacementForm.placement"></el-input>

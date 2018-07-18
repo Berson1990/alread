@@ -21,4 +21,15 @@ class PlacementPayment extends Model
         'payment'
     ];
 
+    public function Placement()
+    {
+        return $this->belongsTo('App\Http\Models\Placement', 'placement_id');
+
+    }
+
+    public function Users()
+    {
+        return $this->belongsTo('App\Http\Models\Users', 'user_id');
+    }
+
 }

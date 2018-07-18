@@ -152,6 +152,9 @@
                             <li>
                                 <a href="{{url('/placement_determine')}}">اختبار تحديد المستوى  </a>
                             </li>
+                            <li>
+                                <a href="{{url('/getplacementpayment')}}">  قائمة المستويات المحصلة  </a>
+                            </li>
 
                         </ul>
 
