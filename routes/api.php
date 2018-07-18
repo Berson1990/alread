@@ -31,6 +31,8 @@ Route::get('gettest/{weak_id}/{subject_id}/{teacher_id}', 'LessonController@GetT
 Route::get('gettestquestions/{weak_id}/{subject_id}/{teacher_id}', 'LessonController@GetTestQuestions');
 Route::get('getteachersubject/{teacher_id}', 'GetTeachersSubject@Teachers');
 Route::get('getteacherweek/{teacher_id}/{subject_id}/{grade_id}/{year_id}', 'Teachers@getWeaksforTeacher');
+Route::get('getleessoninweek/{teacher_id}/{subject_id}/{grade_id}/{year_id}/{week_id}','LessonController@getAllLessonsInWeek');
+
 Route::get('contactus', 'Teachers@Contactus');
 Route::get('bankaccount', 'Teachers@BankAccount');
 Route::get('aboutandpolicy', 'Teachers@aboutandpolicy');
