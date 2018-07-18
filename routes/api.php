@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 */
 
 
+Route::post('activate', 'UsersController@Activate');
+Route::get('getactivatecode/{phone}', 'UsersController@GetActivateForTest');
 Route::get('getGrade', 'UsersController@getGrade');
 Route::get('getYear/{grade_id}', 'UsersController@getYear');
 Route::get('getmyquestion/{student_id}', 'AskAndAnswerController@MyQustion');

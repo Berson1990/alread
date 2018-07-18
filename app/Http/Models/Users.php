@@ -10,7 +10,7 @@ class Users extends Model
 {
     //
     protected $primaryKey = 'user_id';
-    protected $fillable = ['name', 'phone', 'password', 'password_confirm', 'mail', 'type', 'grade', 'year', 'image', 'token_id', 'state'];
+    protected $fillable = ['name', 'phone', 'password', 'password_confirm', 'mail', 'type', 'grade', 'year', 'image', 'token_id', 'state','v-code'];
     protected $table = 'users';
 
     public function TeacherAssgin()

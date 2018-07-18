@@ -19,7 +19,7 @@
 Route::get('teacherDashBoard', 'TeacherControllers\UploadLessonsController@TeacherDashBoard');
 
 
-Route::get('/','TeacherControllers\UploadLessonsController@LoginPage');
+Route::get('/', 'TeacherControllers\UploadLessonsController@LoginPage');
 /*login page start*/
 //Route::get('/', 'AdminControllers\AdminControllers@login_page');
 Route::post('adminapplogin', 'AdminControllers\AdminControllers@LoginAdmin');
@@ -105,8 +105,23 @@ Route::get('assgined', 'AdminControllers\OperationControllers@assginindex');
 Route::post('assgin', 'AdminControllers\OperationControllers@TeacherAssgin');
 Route::delete('deleteassgin/{id}', 'AdminControllers\OperationControllers@DeleteAssgin');
 
-/* assgin teacher end*/
+/*placement Controller*/
+Route::get('placement', 'AdminControllers\PlacementAdminController@PlacemmentIndex');
+Route::get('getplacement', 'AdminControllers\PlacementAdminController@GetPlacement');
+Route::post('createplacement', 'AdminControllers\PlacementAdminController@CreatePlacement');
+Route::put('eidtplacement/{id}', 'AdminControllers\PlacementAdminController@UpdatePlacement');
+Route::delete('deleteplacement/{id}', 'AdminControllers\PlacementAdminController@DeletePlacement');
+/*detetmine*/
+Route::get('placement_determine', 'AdminControllers\PlacementAdminController@Placement_Determine_index');
+Route::get('getquestions', 'AdminControllers\PlacementAdminController@GetAllQuestions');
+Route::post('createquetions', 'AdminControllers\PlacementAdminController@CreateQuestion');
+Route::put('updatequestion/{id}', 'AdminControllers\PlacementAdminController@UpdateQuestions');
+Route::delete('deletequestion/{id}', 'AdminControllers\PlacementAdminController@DeleteQuestions');
+/**/
+/*end*/
 
+
+/* assgin teacher end*/
 
 Route::get('upload', 'TeacherControllers\UploadLessonsController@index');
 Route::get('logout', 'TeacherControllers\UploadLessonsController@LogOut');
@@ -125,4 +140,6 @@ Route::post('uploadNewFile', 'TeacherControllers\UploadLessonsController@UpladeV
 Route::post('teacherLogin', 'TeacherControllers\UploadLessonsController@Login');
 Route::post('createtest', 'TeacherControllers\UploadLessonsController@CreateNewTest');
 Route::get('allsubjectforteach/{year_id}/{grade_id}/{teacher_id}', 'TeacherControllers\UploadLessonsController@GetSubjectWhenAssgin');
+
+
 

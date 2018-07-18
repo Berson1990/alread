@@ -43,12 +43,16 @@ class UsersController extends Controller
 
                 $input['password'] = md5($input['password']);
                 $input['password_confirm'] = md5($input['password_confirm']);
+                $input['v-code'] = $this->GenerateVCode();
+                $this->SendSMSWithVcode($input['phone'], $input['v-code']);
                 $output = $this->users->create($input);
                 $user_id = $output->user_id;
 
 
             } else {
 
+                $input['v-code'] = $this->GenerateVCode();
+                $this->SendSMSWithVcode($input['phone'], $input['v-code']);
                 $input['password'] = md5($input['password']);
                 $input['password_confirm'] = md5($input['password_confirm']);
                 $image = $input["image"];
@@ -72,6 +76,54 @@ class UsersController extends Controller
 
         }
 
+    }
+
+    public function SendSMSWithVcode($phone, $vcode)
+    {
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "http://api.unifonic.com/rest/Messages/Send");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_HEADER, FALSE);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "AppSid=vGkfaWIOZOU2OzJn7liuXU39atTY&Recipient=$phone&Body=$vcode&SenderID=Muthaber");
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/x-www-form-urlencoded"
+        ));
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return $response;
+
+
+    }
+
+    protected function GenerateVCode()
+    {
+        return $six_digit_random_number = mt_rand(1000, 9999);
+    }
+
+    public function Activate()
+    {
+        $input = Request()->all();
+        $output = $this->users->where('phone', $input['phone'])->where('v-code', $input['v-code'])->get();
+        if (count($output) > 0) {
+            $output = ['state' => 'تم تفعيلك بنجاح'];
+        } else {
+            $output = ['state' => 'رقم التفعيل خاطئ'];
+
+        }
+        return $output;
+    }
+
+    public function GetActivateForTest($phone)
+    {
+        $output = $this->users
+            ->select('v-code')
+            ->where('phone', $phone)
+            ->get();
+        return $output;
     }
 
     public function Login()

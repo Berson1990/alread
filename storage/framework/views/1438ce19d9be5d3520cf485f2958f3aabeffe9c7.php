@@ -8,24 +8,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>مثابر - لوحة تحكم التطبيق </title>
-    <link href={{asset("css/bootstrap.min.css")}} rel="stylesheet">
+    <link href=<?php echo e(asset("css/bootstrap.min.css")); ?> rel="stylesheet">
     <meta name="google-site-verification" content="hYgsIi14Fac8-Pvr4_rt7oshb94W4dfW2tDaZmtiv4c"/>
     <!-- MetisMenu CSS -->
-    <link href={{asset("css/plugins/metisMenu/metisMenu.min.css")}} rel="stylesheet">
+    <link href=<?php echo e(asset("css/plugins/metisMenu/metisMenu.min.css")); ?> rel="stylesheet">
 
     <!-- Timeline CSS -->
-    <link href={{asset("css/plugins/timeline.css")}} rel="stylesheet">
+    <link href=<?php echo e(asset("css/plugins/timeline.css")); ?> rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href={{asset(("css/sb-admin-2.css"))}} rel="stylesheet">
+    <link href=<?php echo e(asset(("css/sb-admin-2.css"))); ?> rel="stylesheet">
 
     <!-- Morris Charts CSS -->
-    <link href={{asset("css/plugins/morris.css")}} rel="stylesheet">
+    <link href=<?php echo e(asset("css/plugins/morris.css")); ?> rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href={{asset("vendor/font-awesome-4.7.0/css/font-awesome.min.css")}} rel="stylesheet" type="text/css">
+    <link href=<?php echo e(asset("vendor/font-awesome-4.7.0/css/font-awesome.min.css")); ?> rel="stylesheet" type="text/css">
 
-    {{--vue element--}}
+    
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="//unpkg.com/element-ui/lib/theme-chalk/index.css">
 
@@ -37,13 +37,13 @@
     <![endif]-->
 
 
-    @yield('page-style-level')
+    <?php echo $__env->yieldContent('page-style-level'); ?>
 </head>
 
 <body>
 
 
-{{--side bar and header start--}}
+
 
 <div id="wrapper">
 
@@ -66,7 +66,7 @@
         </div>
         <div class="navbar-header">
 
-            <a style="margin-top:7px ; " class="btn btn-warning" href="{{url('logout')}}"><i class="fa fa-sign-out">
+            <a style="margin-top:7px ; " class="btn btn-warning" href="<?php echo e(url('logout')); ?>"><i class="fa fa-sign-out">
                     &nbsp;خروج</i> </a>
         </div>
         <!-- /.navbar-header -->
@@ -78,7 +78,7 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a class="active" href="{{URL('admindashboard')}}"><i class="fa fa-dashboard fa-fw"></i>الرئيسية
+                        <a class="active" href="<?php echo e(URL('admindashboard')); ?>"><i class="fa fa-dashboard fa-fw"></i>الرئيسية
 
                         </a>
                     </li>
@@ -89,25 +89,25 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('/grade')}}">المراحل الدراسية</a>
+                                <a href="<?php echo e(url('/grade')); ?>">المراحل الدراسية</a>
                             </li>
                             <li>
-                                <a href="{{url('/year')}}">السنين الدراسية</a>
+                                <a href="<?php echo e(url('/year')); ?>">السنين الدراسية</a>
                             </li>
                             <li>
-                                <a href="{{url('/week')}}">الاسابيع الدراسية</a>
+                                <a href="<?php echo e(url('/week')); ?>">الاسابيع الدراسية</a>
                             </li>
                             <li>
-                                <a href="{{url('/subject')}}">المواد الدراسية</a>
+                                <a href="<?php echo e(url('/subject')); ?>">المواد الدراسية</a>
                             </li>
                             <li>
-                                <a href="{{url('/bankaccountpage')}}">الحسابات البنكية </a>
+                                <a href="<?php echo e(url('/bankaccountpage')); ?>">الحسابات البنكية </a>
                             </li>
                             <li>
-                                <a href="{{url('/aboutus')}}"> عن التطبيق والسياسات</a>
+                                <a href="<?php echo e(url('/aboutus')); ?>"> عن التطبيق والسياسات</a>
                             </li>
                             <li>
-                                <a href="{{url('/contactus')}}">تواصل معانا </a>
+                                <a href="<?php echo e(url('/contactus')); ?>">تواصل معانا </a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -119,22 +119,22 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('/teacherassgin')}}">تسكين المعلمين</a>
+                                <a href="<?php echo e(url('/teacherassgin')); ?>">تسكين المعلمين</a>
                             </li>
                             <li>
-                                <a href="{{url('/assgined')}}">  المعلمين المسكنين</a>
+                                <a href="<?php echo e(url('/assgined')); ?>">  المعلمين المسكنين</a>
                             </li>
                             <li>
-                                <a href="{{url('/reportquestion')}}">شكاوى الاسئلة</a>
+                                <a href="<?php echo e(url('/reportquestion')); ?>">شكاوى الاسئلة</a>
                             </li>
                             <li>
-                                <a href="{{url('/teachermanagment')}}">ادارة المعلمين</a>
+                                <a href="<?php echo e(url('/teachermanagment')); ?>">ادارة المعلمين</a>
                             </li>
                             <li>
-                                <a href="{{url('/studentmangmnet')}}">ادارة الطلاب</a>
+                                <a href="<?php echo e(url('/studentmangmnet')); ?>">ادارة الطلاب</a>
                             </li>
                             <li>
-                                <a href="{{url('/studentstatistic')}}">احصائيات الطلاب </a>
+                                <a href="<?php echo e(url('/studentstatistic')); ?>">احصائيات الطلاب </a>
                             </li>
 
                         </ul>
@@ -147,10 +147,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('/placement')}}">مستويات الدورات </a>
+                                <a href="<?php echo e(url('/placement')); ?>">مستويات الدورات </a>
                             </li>
                             <li>
-                                <a href="{{url('/placement_determine')}}">اختبار تحديد المستوى  </a>
+                                <a href="<?php echo e(url('/placement_determine')); ?>">اختبار تحديد المستوى  </a>
                             </li>
 
                         </ul>
@@ -167,9 +167,9 @@
         <!-- /.navbar-static-side -->
     </nav>
 
-    {{--side bar and header end--}}
+    
     <div id="page-wrapper">
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </div>
 </div>
 
@@ -179,31 +179,31 @@
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-{{--<!-- Bootstrap Core JavaScript -->--}}
-<script src={{asset("js/bootstrap.min.js")}}></script>
 
-{{--<!-- Metis Menu Plugin JavaScript -->--}}
-<script src={{asset("js/metisMenu/metisMenu.min.js")}}></script>
+<script src=<?php echo e(asset("js/bootstrap.min.js")); ?>></script>
 
-{{--<!-- Morris Charts JavaScript -->--}}
-<script src={{asset("js/raphael/raphael.min.js")}}></script>
-<script src={{asset("js/morris/morris.min.js")}}></script>
-<script src={{asset("js/julien-maurel-jQuery-Storage-API-f435d2c/jquery.storageapi.min.js")}}></script>
 
-{{--<!-- Custom Theme JavaScript -->--}}
-<script src={{asset("js/sb-admin-2.js")}}></script>
-{{--<!-- Custom scripts for this page-->--}}
-<script src="{{asset("vendor/underscore-1.8.3/underscore-min.js")}}"></script>
-<script src={{asset("vendor/vue/vue.js")}}></script>
-{{--vue element js--}}
+<script src=<?php echo e(asset("js/metisMenu/metisMenu.min.js")); ?>></script>
+
+
+<script src=<?php echo e(asset("js/raphael/raphael.min.js")); ?>></script>
+<script src=<?php echo e(asset("js/morris/morris.min.js")); ?>></script>
+<script src=<?php echo e(asset("js/julien-maurel-jQuery-Storage-API-f435d2c/jquery.storageapi.min.js")); ?>></script>
+
+
+<script src=<?php echo e(asset("js/sb-admin-2.js")); ?>></script>
+
+<script src="<?php echo e(asset("vendor/underscore-1.8.3/underscore-min.js")); ?>"></script>
+<script src=<?php echo e(asset("vendor/vue/vue.js")); ?>></script>
+
 <script src="//unpkg.com/element-ui/lib/index.js"></script>
 <script src="//unpkg.com/element-ui/lib/umd/locale/en.js"></script>
 <script src="//unpkg.com/vue-data-tables@3.0.1/dist/data-tables.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
-{{--<script src={{asset("AdminScript/.js")}}></script>--}}
-@yield('page-script-level')
+
+<?php echo $__env->yieldContent('page-script-level'); ?>
 
 
 </body>

@@ -359,13 +359,13 @@ class AskAndAnswerController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $response =  curl_exec($ch);
 
-        curl_exec($ch);
-//        if ($response === FALSE) {
-//            die('FCM Send Error: ' . curl_error($ch));
-//        } else {
-//            echo $response;
-//        }
+        if ($response === FALSE) {
+            die('FCM Send Error: ' . curl_error($ch));
+        } else {
+            echo $response;
+        }
 
         curl_close($ch);
 
